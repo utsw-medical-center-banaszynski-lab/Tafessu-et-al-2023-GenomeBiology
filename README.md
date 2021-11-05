@@ -2,7 +2,7 @@ Tafessu-et-al-2021
 
 This repository contains code used in the upstream and downstream analyses for the following publication.
 
-H3.3 facilitates open chromatin and associated post-translational modification states at promoters
+H3.3 facilitates open chromatin and associated post-translational modification states at promoter-proximal regulatory elements
 
 You will find scripts for processing ChIPSeq, ATACSeq, RNASeq and GRO-seq data as well as code for generating figures.
 
