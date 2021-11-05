@@ -1,6 +1,6 @@
+#!/bin/bash
 
 module load deeptools
-
 
 computeMatrix reference-point --referencePoint center -R bed_file.bed -b 3000 -a 3000 \
 -S WT.bw \
