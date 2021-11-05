@@ -33,4 +33,4 @@ dev.off()
 
 #Wilcoxon rank sum test
 
-wilcox.test(df_bed_1_1$bed_1_rpkm_WT, df_bed_1_1$bed_1_rpkm_H33KO,conf.int=TRUE)
+wilcox.test(df_bed_1$bed_1_rpkm_WT, df_bed_1$bed_1_rpkm_H33KO,conf.int=TRUE)
