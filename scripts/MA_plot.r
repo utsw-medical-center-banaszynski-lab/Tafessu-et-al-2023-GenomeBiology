@@ -6,7 +6,6 @@ library(dplyr)
 library(readxl)
 library(ggplot2)
 library(plyr)
-library(rowr)
 library(devtools)
 source_gist("524eade46135f6348140")
 library(ggpubr)
@@ -35,6 +34,3 @@ ma_plot <- ma_plot + geom_label_repel(data = subset(TF_list, Type == "TF"),
 pdf("MAplot.pdf")
 ma_plot
 dev.off()
-
-
-
