@@ -1,4 +1,3 @@
-library("IRanges")
 library("GenomicRanges")
 library("Rsamtools")
 library("GenomicAlignments")
