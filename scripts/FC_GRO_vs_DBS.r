@@ -1,22 +1,8 @@
-#load required packages
-library("IRanges")
 library("GenomicRanges")
-library("Rsamtools")
 library("GenomicAlignments")
-library("GenomicFeatures")
 library("rtracklayer")
-
-library(gdata)
-library(gplots)
-library(reshape)
-library(R.utils)
-library(dplyr)
 library(readxl)
 library(ggplot2)
-library(plyr)
-library(devtools)
-source_gist("524eade46135f6348140")
-library(ggpubr)
 library(ggrepel)
 
 a6 <- readGAlignments("WT_GROseq.sorted.bam")
@@ -76,9 +62,9 @@ write.table(rpkm_motif_1, file=paste(myfunc(file), "FC_GRO.xls", sep = "_"), sep
 
 ###########################################################################################################
 
-#Make scatterplot from "TF_GRO_vs_score_label.xls" containing columns for TF name, GRO-seq log2FC, Differential Binding Score (DBS) and label ("yes" or "no")
+#Make scatterplot from "TF_GRO_vs_DBS.xls" containing columns for TF name, GRO-seq log2FC, Differential Binding Score (DBS) and label ("yes" or "no")
 
-Joint_TF_label <- read.table(file = "TF_GRO_vs_score_label.xls", header= T, sep="\t",stringsAsFactors=FALSE)
+Joint_TF_label <- read.table(file = "TF_GRO_vs_DBS.xls", header= T, sep="\t",stringsAsFactors=FALSE)
 head(Joint_TF_label)
 
 
@@ -95,6 +81,6 @@ corr_plot <- corr_plot + geom_label_repel(data = subset(Joint_TF_label, ToLabel 
 
 corr_plot_fit <- corr_plot + geom_smooth(method=lm,linetype=2,colour="red",se=F)
 
-pdf("scatterplot_label_log2GRO_DBS.pdf")
+pdf("scatterplot.pdf")
 corr_plot
 dev.off()
