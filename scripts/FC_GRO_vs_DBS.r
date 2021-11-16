@@ -1,6 +1,6 @@
-library("GenomicRanges")
-library("GenomicAlignments")
-library("rtracklayer")
+library(GenomicRanges)
+library(GenomicAlignments)
+library(rtracklayer)
 library(readxl)
 library(ggplot2)
 library(ggrepel)
@@ -60,18 +60,13 @@ write.table(rpkm_motif_1, file=paste(myfunc(file), "FC_GRO.xls", sep = "_"), sep
 }
 
 
-###########################################################################################################
-
 #Make scatterplot from "TF_GRO_vs_DBS.xls" containing columns for TF name, GRO-seq log2FC, Differential Binding Score (DBS) and label ("yes" or "no")
 
-Joint_TF_label <- read.table(file = "TF_GRO_vs_DBS.xls", header= T, sep="\t",stringsAsFactors=FALSE)
-head(Joint_TF_label)
+GRO_DBS <- read.table(file = "TF_GRO_vs_DBS.xls", header= T, sep="\t",stringsAsFactors=FALSE)
 
+corr_plot <- ggplot(GRO_DBS, aes(x=DBS, y=log2FC_GRO, color=ToLabel)) + geom_point()+ scale_color_manual(values = c("no" = "gray", "yes" = "forestgreen")) + xlim(-0.5,0) + ylim(-0.6, -0.2) + theme(aspect.ratio=1) + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black"))
 
-corr_plot <- ggplot(Joint_TF_label, aes(x=DBS, y=log2FC_GRO, color=ToLabel)) + geom_point()+ scale_color_manual(values = c("no" = "gray", "yes" = "forestgreen")) + xlim(-0.5,0) + ylim(-0.6, -0.2) + theme(aspect.ratio=1) + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black"))
-
-
-corr_plot <- corr_plot + geom_label_repel(data = subset(Joint_TF_label, ToLabel == "yes"), 
+corr_plot <- corr_plot + geom_label_repel(data = subset(GRO_DBS, ToLabel == "yes"), 
                                           aes(label = TF_ID, size = NULL, color = NULL),
                                           nudge_y = -0.1,
                                           segment.size  = 0.2,
