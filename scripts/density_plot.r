@@ -1,8 +1,5 @@
-library("IRanges")
 library("GenomicRanges")
-library("Rsamtools")
 library("GenomicAlignments")
-library("GenomicFeatures")
 library("rtracklayer")
 
 a1 <- readGAlignments("WT_p300.bam")
@@ -72,8 +69,4 @@ lines(density(rpkm_promoters_p300$log2ratioKO.WT ,na.rm=TRUE),col="olivedrab", l
 lines(density(rpkm_promoters_H3K27ac$log2ratioKO.WT ,na.rm=TRUE),col="dodgerblue3", lty=1, lwd=4)
 lines(density(rpkm_promoters_BRD4$log2ratioKO.WT ,na.rm=TRUE),col="darkorchid4", lty=1, lwd=4)
 legend('topright',c('H3K4me3','p300', 'H3K27ac', 'BRD4'), fill = c("darkorange","olivedrab","dodgerblue3","darkorchid4"), bty = 'n', border = NA)
-abline(v = mean(rpkm_promoters_H3K4me3$log2ratioKO.WT), col="darkorange", lwd=2, lty=2)
-abline(v = mean(rpkm_promoters_p300$log2ratioKO.WT), col="olivedrab", lwd=2, lty=2)
-abline(v = mean(rpkm_promoters_H3K27ac$log2ratioKO.WT), col="dodgerblue3", lwd=2, lty=2)
-abline(v = mean(rpkm_promoters_BRD4$log2ratioKO.WT), col="darkorchid4", lwd=2, lty=2)
 dev.off()
