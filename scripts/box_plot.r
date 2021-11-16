@@ -1,11 +1,10 @@
 library("GenomicRanges")
-library("Rsamtools")
 library("GenomicAlignments")
-library("GenomicFeatures")
 library("rtracklayer")
 
 WT <- readGAlignments("WT.bam")
 H33KO <- readGAlignments("H33KO.bam")
+
 
 WT.gr <- granges(WT)
 H33KO.gr <- granges(H33KO)
@@ -16,6 +15,7 @@ H33KO <- H33KO.gr
 
 library_WT <- NROW(WT)
 library_H33KO <- NROW(H33KO)
+
 
 #Import BED files
 bed_1 <- import("bed1.bed", format = "BED")
@@ -30,6 +30,8 @@ boxplot(df_bed_1, col=(c("gray","red")), main="Title", ylab="RPKM",outline=FALSE
 axis(2, at=c(0,2,4))
 dev.off()
 
-#Wilcoxon rank sum test
 
+#Wilcoxon rank sum test
 wilcox.test(df_bed_1$bed_1_rpkm_WT, df_bed_1$bed_1_rpkm_H33KO,conf.int=TRUE)
+
+
