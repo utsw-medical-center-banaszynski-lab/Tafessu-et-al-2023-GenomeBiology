@@ -1,4 +1,4 @@
-Tafessu-et-al-2021
+Tafessu-et-al-2023-GenomeBiology
 
 This repository contains code used in the upstream and downstream analyses for the following publication.
 
