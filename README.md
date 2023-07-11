@@ -9,11 +9,11 @@ You will find scripts for processing ChIPSeq, ATACSeq, RNASeq and GRO-seq data a
 Data availability
 Data sets are deposited in the NCBI GEO under the following accession numbers:
 
-ATACSeq GSE---
-ChIPSeq GSE---
-RNASeq GSE---
-GRO-seq GSE---
-The accession number for the SuperSeries is GSE---.
+ATACSeq GSE186684
+ChIPSeq GSE186685
+GRO-seq GSE186686
+CUT&Tag GSE213039
+The accession number for the SuperSeries is GSE186687.
 
 Questions
 For correspondence and requests for materials please contact Dr. Laura Banaszynski at laura.banaszynski@utsouthwestern.edu
